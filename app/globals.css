@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+    /* 1. Defining your custom widths from the original HTML */
+    --spacing-93: 23.25rem; /* Used in w-93 */
+    --spacing-200: 50rem; /* Used in w-200 and max-w-200 */
+    --spacing-30: 7.5rem; /* Used in gap-30 */
+
+    /* 2. Defining the exact colors from your output.css */
+    --color-background: #0d0d0d;
+    --color-orange-500: oklch(70.5% 0.213 47.604);
+    --color-orange-950: oklch(26.6% 0.079 36.259);
+
+    /* 3. Mapping the Next.js fonts to Tailwind variables */
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+/* 4. Global Body Styles to match your input.css exactly */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-background text-white antialiased;
+        font-family:
+            var(--font-geist-mono), monospace; /* Sets Mono as default */
+    }
+
+    /* Ensuring the layout matches your h-lvh requirement */
+    .main-container {
+        @apply w-93 sm:w-200 max-w-200 min-h-lvh flex flex-col justify-between gap-30 mx-auto;
+    }
+}
+
+@keyframes newsletter-bounce-up {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-newsletter-bounce-up {
+    animation: newsletter-bounce-up 0.7s ease-out forwards;
+}
