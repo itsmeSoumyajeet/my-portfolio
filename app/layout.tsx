@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PageTransition from "@/components/PageTransition";
+import WorkInProgress from "@/components/WorkInProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistMono.className} bg-[#0d0d0d] text-white antialiased py-3 px-5 flex flex-col items-center min-h-screen`}
       >
+        <WorkInProgress />
         <Navbar />
         <div className="w-full max-w-[800px] flex flex-col justify-between gap-20 sm:gap-30 pt-[72px]">
           <PageTransition>{children}</PageTransition>
